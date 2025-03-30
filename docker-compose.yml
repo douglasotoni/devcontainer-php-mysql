@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .devcontainer
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "9003:9003"
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./www:/var/www/html
+      - ./nginx/logs:/var/log/nginx  # Adicionado o mapeamento de logs
+    ports:
+      - "80:80"
+    depends_on:
+      - php
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: novo_cep
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./www/database.sql:/docker-entrypoint-initdb.d/database.sql

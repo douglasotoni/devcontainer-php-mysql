@@ -1,0 +1,16 @@
+{
+  "name": "PHP + Nginx + MySQL Dev",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "php",
+  "workspaceFolder": "/var/www/html",
+  "settings": {
+    "php.validate.executablePath": "/usr/local/bin/php",
+    "php.debug.executablePath": "/usr/local/bin/php",
+    "php.debug.port": 9003
+  },
+  "extensions": [
+    "felixfbecker.php-debug"
+  ],
+  "forwardPorts": [8080, 3306],
+  "postCreateCommand": "composer install || true"
+}
