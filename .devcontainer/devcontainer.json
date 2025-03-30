@@ -1,5 +1,5 @@
 {
-  "name": "PHP + Nginx + MySQL Dev",
+  "name": "Devcontainer PHP + MySQL",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "php",
   "workspaceFolder": "/var/www/html",
@@ -9,8 +9,8 @@
     "php.debug.port": 9003
   },
   "extensions": [
-    "felixfbecker.php-debug"
+    "xdebug.php-debug"
   ],
   "forwardPorts": [8080, 3306],
-  "postCreateCommand": "composer install || true"
+  "postCreateCommand": ""
 }

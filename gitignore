@@ -1,0 +1,5 @@
+# Ignora todos os arquivos na pasta nginx/logs
+nginx/logs/*
+
+# Ignora todos os arquivos e pastas dentro de www
+www/*
